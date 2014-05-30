@@ -6,6 +6,7 @@ open import Algebra.OrderedMonoid
 open import Algebra.FunctionProperties as FunctionProperties using (Op₁; Op₂)
 open import Data.Product using (_×_; _,_; proj₁; proj₂)
 open import Relation.Binary
+open import Relation.Binary.PartialOrderReasoning as ≤-Reasoning using ()
 open import Auto
 
 module Algebra.Pregroup where
@@ -61,15 +62,16 @@ record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
 
   open IsPregroup isPregroup public
 
-  -- for usage with PartialOrderReasoning
-  poset : Poset c ℓ₁ ℓ₂
-  poset = record { isPartialOrder = isPartialOrder }
-  open import Relation.Binary.PartialOrderReasoning poset
+  private
+    -- for usage with ≤-Reasoning
+    poset : Poset c ℓ₁ ℓ₂
+    poset = record { isPartialOrder = isPartialOrder }
+    open ≤-Reasoning poset
 
-  -- for usage of substitutivity (which is not defined in IsPregroup)
-  orderedMonoid : OrderedMonoid _ _ _
-  orderedMonoid = record { isOrderedMonoid = isOrderedMonoid }
-  open OrderedMonoid orderedMonoid public using (substitutivity)
+    -- for usage of substitutivity (which is not defined in IsPregroup)
+    orderedMonoid : OrderedMonoid _ _ _
+    orderedMonoid = record { isOrderedMonoid = isOrderedMonoid }
+    open OrderedMonoid orderedMonoid public using (substitutivity)
 
 
   -- define shorthand notation for a term being the left/right adjoint
@@ -242,15 +244,3 @@ record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
 
   ˡʳ-cancel : ∀ x → x ˡ ʳ ≈ x
   ˡʳ-cancel x = sym (ʳ-unique (ˡ-contract x , ˡ-expand x))
-
-  ˡ-merge₁ : ∀ x → x ∙ x ˡ ∙ x ≈ x
-  ˡ-merge₁ = {!!}
-
-  ˡ-merge₂ : ∀ x → x ˡ ∙ x ∙ x ˡ ≈ x
-  ˡ-merge₂ = {!!}
-
-  ʳ-merge₁ : ∀ x → x ∙ x ʳ ∙ x ≈ x
-  ʳ-merge₁ = {!!}
-
-  ʳ-merge₂ : ∀ x → x ʳ ∙ x ∙ x ʳ ≈ x
-  ʳ-merge₂ = {!!}
