@@ -7,7 +7,6 @@ open import Algebra.FunctionProperties as FunctionProperties using (Op₁; Op₂
 open import Data.Product using (_×_; _,_; proj₁; proj₂)
 open import Relation.Binary
 open import Relation.Binary.PartialOrderReasoning as ≤-Reasoning using ()
-open import Auto
 
 module Algebra.Pregroup where
 
