@@ -13,3 +13,6 @@
     library](http://www.cse.chalmers.se/~nad/software/lib-0.7.tar.gz);
 
   - the code is released under an [MIT license](code/LICENSE);
+
+  - see here for [the code](http://pepijnkokke.github.io/Algebra.Pregroup/html/Algebra.Pregroup.html)
+    in fancy clickable html.
