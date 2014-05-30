@@ -73,7 +73,6 @@ record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
     orderedMonoid = record { isOrderedMonoid = isOrderedMonoid }
     open OrderedMonoid orderedMonoid public using (substitutivity)
 
-
   -- define shorthand notation for a term being the left/right adjoint
   -- of another term, which can be proven to be unique.
   _LeftAdjointOf_ : ∀ y x → Set _
