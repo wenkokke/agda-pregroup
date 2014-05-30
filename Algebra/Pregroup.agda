@@ -237,16 +237,11 @@ record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
       x ʳ
     ∎
 
-  ˡʳ-cancel : ∀ x → x ˡ ʳ ≈ x
-  ˡʳ-cancel x = {!!}
-
   ʳˡ-cancel : ∀ x → x ʳ ˡ ≈ x
-  ʳˡ-cancel x = {!ˡ-adjoint!}
-    where
-      [xxʳ]xʳ≤ε : ∀ x → (x ∙ x ʳ) ∙ x ʳ ≤ ε
-      [xxʳ]xʳ≤ε x = {!!}
-      ε≤xʳ[xxʳ] : ∀ x → ε ≤ x ʳ ∙ (x ∙ x ʳ)
-      ε≤xʳ[xxʳ] x = {!!}
+  ʳˡ-cancel x = sym (ˡ-unique (ʳ-contract x , ʳ-expand x))
+
+  ˡʳ-cancel : ∀ x → x ˡ ʳ ≈ x
+  ˡʳ-cancel x = sym (ʳ-unique (ˡ-contract x , ˡ-expand x))
 
   ˡ-merge₁ : ∀ x → x ∙ x ˡ ∙ x ≈ x
   ˡ-merge₁ = {!!}
