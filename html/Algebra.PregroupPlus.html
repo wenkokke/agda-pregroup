@@ -1,0 +1,1532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >Algebra.PregroupPlus</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >open</a
+      ><a name="5"
+      > </a
+      ><a name="6" class="Keyword"
+      >import</a
+      ><a name="12"
+      > </a
+      ><a name="13" href="Level.html#1" class="Module"
+      >Level</a
+      ><a name="18"
+      > </a
+      ><a name="19" class="Keyword"
+      >using</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Symbol"
+      >(</a
+      ><a name="26"
+      >Level</a
+      ><a name="31" class="Symbol"
+      >;</a
+      ><a name="32"
+      > suc</a
+      ><a name="36" class="Symbol"
+      >;</a
+      ><a name="37"
+      > zero</a
+      ><a name="42" class="Symbol"
+      >;</a
+      ><a name="43"
+      > _&#8852;_</a
+      ><a name="47" class="Symbol"
+      >)</a
+      ><a name="48"
+      >
+</a
+      ><a name="49" class="Keyword"
+      >open</a
+      ><a name="53"
+      > </a
+      ><a name="54" class="Keyword"
+      >import</a
+      ><a name="60"
+      > </a
+      ><a name="61" href="Function.html#1" class="Module"
+      >Function</a
+      ><a name="69"
+      > </a
+      ><a name="70" class="Keyword"
+      >using</a
+      ><a name="75"
+      > </a
+      ><a name="76" class="Symbol"
+      >(</a
+      ><a name="77"
+      >const</a
+      ><a name="82" class="Symbol"
+      >)</a
+      ><a name="83"
+      >
+</a
+      ><a name="84" class="Keyword"
+      >open</a
+      ><a name="88"
+      > </a
+      ><a name="89" class="Keyword"
+      >import</a
+      ><a name="95"
+      > </a
+      ><a name="96" href="Algebra.html#1" class="Module"
+      >Algebra</a
+      ><a name="103"
+      >
+</a
+      ><a name="104" class="Keyword"
+      >open</a
+      ><a name="108"
+      > </a
+      ><a name="109" class="Keyword"
+      >import</a
+      ><a name="115"
+      > </a
+      ><a name="116" href="Algebra.Structures.html#1" class="Module"
+      >Algebra.Structures</a
+      ><a name="134"
+      >
+</a
+      ><a name="135" class="Keyword"
+      >open</a
+      ><a name="139"
+      > </a
+      ><a name="140" class="Keyword"
+      >import</a
+      ><a name="146"
+      > </a
+      ><a name="147" href="Algebra.OrderedMonoid.html#1" class="Module"
+      >Algebra.OrderedMonoid</a
+      ><a name="168"
+      >
+</a
+      ><a name="169" class="Keyword"
+      >open</a
+      ><a name="173"
+      > </a
+      ><a name="174" class="Keyword"
+      >import</a
+      ><a name="180"
+      > </a
+      ><a name="181" href="Algebra.Pregroup.html#1" class="Module"
+      >Algebra.Pregroup</a
+      ><a name="197"
+      >
+</a
+      ><a name="198" class="Keyword"
+      >open</a
+      ><a name="202"
+      > </a
+      ><a name="203" class="Keyword"
+      >import</a
+      ><a name="209"
+      > </a
+      ><a name="210" href="Algebra.FunctionProperties.html#1" class="Module"
+      >Algebra.FunctionProperties</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Symbol"
+      >as</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Module"
+      >FunctionProperties</a
+      ><a name="258"
+      > </a
+      ><a name="259" class="Keyword"
+      >using</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Symbol"
+      >(</a
+      ><a name="266"
+      >Op&#8321;</a
+      ><a name="269" class="Symbol"
+      >;</a
+      ><a name="270"
+      > Op&#8322;</a
+      ><a name="274" class="Symbol"
+      >)</a
+      ><a name="275"
+      >
+</a
+      ><a name="276" class="Keyword"
+      >open</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="Keyword"
+      >import</a
+      ><a name="287"
+      > </a
+      ><a name="288" href="Data.Product.html#1" class="Module"
+      >Data.Product</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Keyword"
+      >using</a
+      ><a name="306"
+      > </a
+      ><a name="307" class="Symbol"
+      >(</a
+      ><a name="308"
+      >_&#215;_</a
+      ><a name="311" class="Symbol"
+      >;</a
+      ><a name="312"
+      > _,_</a
+      ><a name="316" class="Symbol"
+      >;</a
+      ><a name="317"
+      > proj&#8321;</a
+      ><a name="323" class="Symbol"
+      >;</a
+      ><a name="324"
+      > proj&#8322;</a
+      ><a name="330" class="Symbol"
+      >)</a
+      ><a name="331"
+      >
+</a
+      ><a name="332" class="Keyword"
+      >open</a
+      ><a name="336"
+      > </a
+      ><a name="337" class="Keyword"
+      >import</a
+      ><a name="343"
+      > </a
+      ><a name="344" href="Relation.Binary.html#1" class="Module"
+      >Relation.Binary</a
+      ><a name="359"
+      >
+</a
+      ><a name="360" class="Keyword"
+      >open</a
+      ><a name="364"
+      > </a
+      ><a name="365" class="Keyword"
+      >import</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="Relation.Binary.PartialOrderReasoning.html#1" class="Module"
+      >Relation.Binary.PartialOrderReasoning</a
+      ><a name="409"
+      > </a
+      ><a name="410" class="Symbol"
+      >as</a
+      ><a name="412"
+      > </a
+      ><a name="413" class="Module"
+      >&#8804;-Reasoning</a
+      ><a name="424"
+      > </a
+      ><a name="425" class="Keyword"
+      >using</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >()</a
+      ><a name="433"
+      >
+
+</a
+      ><a name="435" class="Keyword"
+      >module</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="Algebra.PregroupPlus.html#1" class="Module"
+      >Algebra.PregroupPlus</a
+      ><a name="462"
+      > </a
+      ><a name="463" class="Keyword"
+      >where</a
+      ><a name="468"
+      >
+
+</a
+      ><a name="470" class="Keyword"
+      >record</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="Algebra.PregroupPlus.html#477" class="Record"
+      >IsPregroupPlus</a
+      ><a name="491"
+      >
+       </a
+      ><a name="499" class="Symbol"
+      >{</a
+      ><a name="500" href="Algebra.PregroupPlus.html#500" class="Bound"
+      >a</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="Algebra.PregroupPlus.html#502" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="Algebra.PregroupPlus.html#505" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="507" class="Symbol"
+      >}</a
+      ><a name="508"
+      > </a
+      ><a name="509" class="Symbol"
+      >{</a
+      ><a name="510" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="511"
+      > </a
+      ><a name="512" class="Symbol"
+      >:</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="PrimitiveType"
+      >Set</a
+      ><a name="517"
+      > </a
+      ><a name="518" href="Algebra.PregroupPlus.html#500" class="Bound"
+      >a</a
+      ><a name="519" class="Symbol"
+      >}</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="Symbol"
+      >(</a
+      ><a name="522" href="Algebra.PregroupPlus.html#522" class="Bound"
+      >&#8776;</a
+      ><a name="523"
+      > </a
+      ><a name="524" class="Symbol"
+      >:</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="Relation.Binary.Core.html#761" class="Function"
+      >Rel</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="Algebra.PregroupPlus.html#502" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="534" class="Symbol"
+      >)</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >(</a
+      ><a name="537" href="Algebra.PregroupPlus.html#537" class="Bound"
+      >&#8804;</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="Symbol"
+      >:</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="Relation.Binary.Core.html#761" class="Function"
+      >Rel</a
+      ><a name="544"
+      > </a
+      ><a name="545" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="Algebra.PregroupPlus.html#505" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="549" class="Symbol"
+      >)</a
+      ><a name="550"
+      >
+       </a
+      ><a name="558" class="Symbol"
+      >(</a
+      ><a name="559" href="Algebra.PregroupPlus.html#559" class="Bound"
+      >&#8729;</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >:</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="Algebra.FunctionProperties.Core.html#715" class="Function"
+      >Op&#8322;</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="568" class="Symbol"
+      >)</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >(</a
+      ><a name="571" href="Algebra.PregroupPlus.html#571" class="Bound"
+      >&#949;&#8321;</a
+      ><a name="573"
+      > </a
+      ><a name="574" class="Symbol"
+      >:</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="577" class="Symbol"
+      >)</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="Symbol"
+      >(</a
+      ><a name="580" href="Algebra.PregroupPlus.html#580" class="Bound"
+      >&#737;</a
+      ><a name="581"
+      > </a
+      ><a name="582" class="Symbol"
+      >:</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="589" class="Symbol"
+      >)</a
+      ><a name="590"
+      > </a
+      ><a name="591" class="Symbol"
+      >(</a
+      ><a name="592" href="Algebra.PregroupPlus.html#592" class="Bound"
+      >&#691;</a
+      ><a name="593"
+      > </a
+      ><a name="594" class="Symbol"
+      >:</a
+      ><a name="595"
+      > </a
+      ><a name="596" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="601" class="Symbol"
+      >)</a
+      ><a name="602"
+      >
+       </a
+      ><a name="610" class="Symbol"
+      >(</a
+      ><a name="611" href="Algebra.PregroupPlus.html#611" class="Bound"
+      >+</a
+      ><a name="612"
+      > </a
+      ><a name="613" class="Symbol"
+      >:</a
+      ><a name="614"
+      > </a
+      ><a name="615" href="Algebra.FunctionProperties.Core.html#715" class="Function"
+      >Op&#8322;</a
+      ><a name="618"
+      > </a
+      ><a name="619" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="620" class="Symbol"
+      >)</a
+      ><a name="621"
+      > </a
+      ><a name="622" class="Symbol"
+      >(</a
+      ><a name="623" href="Algebra.PregroupPlus.html#623" class="Bound"
+      >&#949;&#8320;</a
+      ><a name="625"
+      > </a
+      ><a name="626" class="Symbol"
+      >:</a
+      ><a name="627"
+      > </a
+      ><a name="628" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="629" class="Symbol"
+      >)</a
+      ><a name="630"
+      > </a
+      ><a name="631" class="Symbol"
+      >(</a
+      ><a name="632" href="Algebra.PregroupPlus.html#632" class="Bound"
+      >&#7512;</a
+      ><a name="633"
+      > </a
+      ><a name="634" class="Symbol"
+      >:</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="641" class="Symbol"
+      >)</a
+      ><a name="642"
+      > </a
+      ><a name="643" class="Symbol"
+      >(</a
+      ><a name="644" href="Algebra.PregroupPlus.html#644" class="Bound"
+      >&#7496;</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >:</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="Algebra.PregroupPlus.html#510" class="Bound"
+      >A</a
+      ><a name="653" class="Symbol"
+      >)</a
+      ><a name="654"
+      >
+       </a
+      ><a name="662" class="Symbol"
+      >:</a
+      ><a name="663"
+      > </a
+      ><a name="664" class="PrimitiveType"
+      >Set</a
+      ><a name="667"
+      > </a
+      ><a name="668" class="Symbol"
+      >(</a
+      ><a name="669" href="Algebra.PregroupPlus.html#500" class="Bound"
+      >a</a
+      ><a name="670"
+      > </a
+      ><a name="671" href="Level.html#311" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="Algebra.PregroupPlus.html#502" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="Level.html#311" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="Algebra.PregroupPlus.html#505" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="680" class="Symbol"
+      >)</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="Keyword"
+      >where</a
+      ><a name="687"
+      >
+
+  </a
+      ><a name="691" class="Keyword"
+      >field</a
+      ><a name="696"
+      >
+    </a
+      ><a name="701" href="Algebra.PregroupPlus.html#701" class="Field"
+      >&#8729;-isPregroup</a
+      ><a name="713"
+      > </a
+      ><a name="714" class="Symbol"
+      >:</a
+      ><a name="715"
+      > </a
+      ><a name="716" href="Algebra.Pregroup.html#1336" class="Record"
+      >IsPregroup</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="Algebra.PregroupPlus.html#522" class="Bound"
+      >&#8776;</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="Algebra.PregroupPlus.html#537" class="Bound"
+      >&#8804;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="Algebra.PregroupPlus.html#559" class="Bound"
+      >&#8729;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="Algebra.PregroupPlus.html#571" class="Bound"
+      >&#949;&#8321;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="Algebra.PregroupPlus.html#580" class="Bound"
+      >&#737;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="Algebra.PregroupPlus.html#592" class="Bound"
+      >&#691;</a
+      ><a name="739"
+      >
+    </a
+      ><a name="744" href="Algebra.PregroupPlus.html#744" class="Field"
+      >+-isPregroup</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >:</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="Algebra.Pregroup.html#1336" class="Record"
+      >IsPregroup</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="Algebra.PregroupPlus.html#522" class="Bound"
+      >&#8776;</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="Algebra.PregroupPlus.html#537" class="Bound"
+      >&#8804;</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="Algebra.PregroupPlus.html#611" class="Bound"
+      >+</a
+      ><a name="775"
+      > </a
+      ><a name="776" href="Algebra.PregroupPlus.html#623" class="Bound"
+      >&#949;&#8320;</a
+      ><a name="778"
+      > </a
+      ><a name="779" href="Algebra.PregroupPlus.html#632" class="Bound"
+      >&#7512;</a
+      ><a name="780"
+      > </a
+      ><a name="781" href="Algebra.PregroupPlus.html#644" class="Bound"
+      >&#7496;</a
+      ><a name="782"
+      >
+
+  </a
+      ><a name="786" class="Keyword"
+      >open</a
+      ><a name="790"
+      > </a
+      ><a name="791" href="Algebra.Pregroup.html#1336" class="Module"
+      >IsPregroup</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="Algebra.PregroupPlus.html#701" class="Function"
+      >&#8729;-isPregroup</a
+      ><a name="814"
+      > </a
+      ><a name="815" class="Keyword"
+      >public</a
+      ><a name="821"
+      >
+       </a
+      ><a name="829" class="Keyword"
+      >using</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >(</a
+      ><a name="836"
+      >&#737;-cong</a
+      ><a name="842" class="Symbol"
+      >;</a
+      ><a name="843"
+      > &#691;-cong</a
+      ><a name="850" class="Symbol"
+      >;</a
+      ><a name="851"
+      > &#737;-contract</a
+      ><a name="862" class="Symbol"
+      >;</a
+      ><a name="863"
+      > &#691;-contract
+             </a
+      ><a name="888" class="Symbol"
+      >;</a
+      ><a name="889"
+      >&#737;-expand</a
+      ><a name="897" class="Symbol"
+      >;</a
+      ><a name="898"
+      > &#691;-expand</a
+      ><a name="907" class="Symbol"
+      >;</a
+      ><a name="908"
+      > &#8729;-cong</a
+      ><a name="915" class="Symbol"
+      >)</a
+      ><a name="916"
+      >
+       </a
+      ><a name="924" class="Keyword"
+      >renaming</a
+      ><a name="932"
+      > </a
+      ><a name="933" class="Symbol"
+      >(</a
+      ><a name="934"
+      >assoc </a
+      ><a name="940" class="Symbol"
+      >to</a
+      ><a name="942"
+      > &#8729;-assoc</a
+      ><a name="950" class="Symbol"
+      >;</a
+      ><a name="951"
+      > identity </a
+      ><a name="961" class="Symbol"
+      >to</a
+      ><a name="963"
+      > &#8729;-identity
+                </a
+      ><a name="991" class="Symbol"
+      >;</a
+      ><a name="992"
+      >compatibility </a
+      ><a name="1006" class="Symbol"
+      >to</a
+      ><a name="1008"
+      > &#8729;-compatibility</a
+      ><a name="1024" class="Symbol"
+      >)</a
+      ><a name="1025"
+      >
+  </a
+      ><a name="1028" class="Keyword"
+      >open</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="Algebra.Pregroup.html#1336" class="Module"
+      >IsPregroup</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="Algebra.PregroupPlus.html#744" class="Function"
+      >+-isPregroup</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" class="Keyword"
+      >public</a
+      ><a name="1063"
+      >
+       </a
+      ><a name="1071" class="Keyword"
+      >using</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" class="Symbol"
+      >(</a
+      ><a name="1078"
+      >&#8804;-refl</a
+      ><a name="1084" class="Symbol"
+      >;</a
+      ><a name="1085"
+      > &#8804;-reflexive</a
+      ><a name="1097" class="Symbol"
+      >;</a
+      ><a name="1098"
+      > &#8804;-trans</a
+      ><a name="1106" class="Symbol"
+      >;</a
+      ><a name="1107"
+      > &#8804;-resp-&#8776;</a
+      ><a name="1116" class="Symbol"
+      >;</a
+      ><a name="1117"
+      > refl</a
+      ><a name="1122" class="Symbol"
+      >;</a
+      ><a name="1123"
+      > sym</a
+      ><a name="1127" class="Symbol"
+      >;</a
+      ><a name="1128"
+      > trans</a
+      ><a name="1134" class="Symbol"
+      >;</a
+      ><a name="1135"
+      > antisym</a
+      ><a name="1143" class="Symbol"
+      >)</a
+      ><a name="1144"
+      >
+       </a
+      ><a name="1152" class="Keyword"
+      >renaming</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" class="Symbol"
+      >(</a
+      ><a name="1162"
+      >&#737;-cong </a
+      ><a name="1169" class="Symbol"
+      >to</a
+      ><a name="1171"
+      > &#7496;-cong</a
+      ><a name="1178" class="Symbol"
+      >;</a
+      ><a name="1179"
+      > &#691;-cong </a
+      ><a name="1187" class="Symbol"
+      >to</a
+      ><a name="1189"
+      > &#7512;-cong
+                </a
+      ><a name="1213" class="Symbol"
+      >;</a
+      ><a name="1214"
+      >&#737;-contract </a
+      ><a name="1225" class="Symbol"
+      >to</a
+      ><a name="1227"
+      > &#7496;-contract</a
+      ><a name="1238" class="Symbol"
+      >;</a
+      ><a name="1239"
+      > &#691;-contract </a
+      ><a name="1251" class="Symbol"
+      >to</a
+      ><a name="1253"
+      > &#7512;-contract
+                </a
+      ><a name="1281" class="Symbol"
+      >;</a
+      ><a name="1282"
+      >&#737;-expand </a
+      ><a name="1291" class="Symbol"
+      >to</a
+      ><a name="1293"
+      > &#7496;-expand</a
+      ><a name="1302" class="Symbol"
+      >;</a
+      ><a name="1303"
+      > &#691;-expand </a
+      ><a name="1313" class="Symbol"
+      >to</a
+      ><a name="1315"
+      > &#7512;-expand
+                </a
+      ><a name="1341" class="Symbol"
+      >;</a
+      ><a name="1342"
+      >&#8729;-cong </a
+      ><a name="1349" class="Symbol"
+      >to</a
+      ><a name="1351"
+      > +-cong</a
+      ><a name="1358" class="Symbol"
+      >;</a
+      ><a name="1359"
+      > assoc </a
+      ><a name="1366" class="Symbol"
+      >to</a
+      ><a name="1368"
+      > +-assoc</a
+      ><a name="1376" class="Symbol"
+      >;</a
+      ><a name="1377"
+      > identity </a
+      ><a name="1387" class="Symbol"
+      >to</a
+      ><a name="1389"
+      > +-identity
+                </a
+      ><a name="1417" class="Symbol"
+      >;</a
+      ><a name="1418"
+      >compatibility </a
+      ><a name="1432" class="Symbol"
+      >to</a
+      ><a name="1434"
+      > +-compatibility</a
+      ><a name="1450" class="Symbol"
+      >)</a
+      ><a name="1451"
+      >
+
+
+</a
+      ><a name="1454" class="Keyword"
+      >record</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="Algebra.PregroupPlus.html#1461" class="Record"
+      >PregroupPlus</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="Algebra.PregroupPlus.html#1474" class="Bound"
+      >c</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="Algebra.PregroupPlus.html#1476" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="Algebra.PregroupPlus.html#1479" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" class="Symbol"
+      >:</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" class="PrimitiveType"
+      >Set</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" class="Symbol"
+      >(</a
+      ><a name="1489" href="Level.html#287" class="Primitive"
+      >suc</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" class="Symbol"
+      >(</a
+      ><a name="1494" href="Algebra.PregroupPlus.html#1474" class="Bound"
+      >c</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="Level.html#311" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="Algebra.PregroupPlus.html#1476" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" href="Level.html#311" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="Algebra.PregroupPlus.html#1479" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="1505" class="Symbol"
+      >))</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" class="Keyword"
+      >where</a
+      ><a name="1513"
+      >
+  </a
+      ><a name="1516" class="Keyword"
+      >infixl</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" class="Number"
+      >7</a
+      ><a name="1524"
+      > _&#8729;_
+  </a
+      ><a name="1531" class="Keyword"
+      >infixl</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" class="Number"
+      >6</a
+      ><a name="1539"
+      > _+_
+  </a
+      ><a name="1546" class="Keyword"
+      >infix</a
+      ><a name="1551"
+      >  </a
+      ><a name="1553" class="Number"
+      >4</a
+      ><a name="1554"
+      > _&#8776;_
+  </a
+      ><a name="1561" class="Keyword"
+      >infix</a
+      ><a name="1566"
+      >  </a
+      ><a name="1568" class="Number"
+      >4</a
+      ><a name="1569"
+      > _&#8804;_
+  </a
+      ><a name="1576" class="Keyword"
+      >field</a
+      ><a name="1581"
+      >
+    </a
+      ><a name="1586" href="Algebra.PregroupPlus.html#1586" class="Field"
+      >Carrier</a
+      ><a name="1593"
+      >         </a
+      ><a name="1602" class="Symbol"
+      >:</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" class="PrimitiveType"
+      >Set</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="Algebra.PregroupPlus.html#1474" class="Bound"
+      >c</a
+      ><a name="1609"
+      >
+    </a
+      ><a name="1614" href="Algebra.PregroupPlus.html#1614" class="Field Operator"
+      >_&#8776;_</a
+      ><a name="1617"
+      >             </a
+      ><a name="1630" class="Symbol"
+      >:</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="Relation.Binary.Core.html#761" class="Function"
+      >Rel</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="Algebra.PregroupPlus.html#1476" class="Bound"
+      >&#8467;&#8321;</a
+      ><a name="1646"
+      >
+    </a
+      ><a name="1651" href="Algebra.PregroupPlus.html#1651" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1654"
+      >             </a
+      ><a name="1667" class="Symbol"
+      >:</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="Relation.Binary.Core.html#761" class="Function"
+      >Rel</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1680"
+      > </a
+      ><a name="1681" href="Algebra.PregroupPlus.html#1479" class="Bound"
+      >&#8467;&#8322;</a
+      ><a name="1683"
+      >
+    </a
+      ><a name="1688" href="Algebra.PregroupPlus.html#1688" class="Field Operator"
+      >_&#8729;_</a
+      ><a name="1691"
+      >             </a
+      ><a name="1704" class="Symbol"
+      >:</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="Algebra.FunctionProperties.Core.html#715" class="Function"
+      >Op&#8322;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1717"
+      >
+    </a
+      ><a name="1722" href="Algebra.PregroupPlus.html#1722" class="Field"
+      >&#949;&#8321;</a
+      ><a name="1724"
+      >              </a
+      ><a name="1738" class="Symbol"
+      >:</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1747"
+      >
+    </a
+      ><a name="1752" href="Algebra.PregroupPlus.html#1752" class="Field Operator"
+      >_&#737;</a
+      ><a name="1754"
+      >              </a
+      ><a name="1768" class="Symbol"
+      >:</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1781"
+      >
+    </a
+      ><a name="1786" href="Algebra.PregroupPlus.html#1786" class="Field Operator"
+      >_&#691;</a
+      ><a name="1788"
+      >              </a
+      ><a name="1802" class="Symbol"
+      >:</a
+      ><a name="1803"
+      > </a
+      ><a name="1804" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1815"
+      >
+    </a
+      ><a name="1820" href="Algebra.PregroupPlus.html#1820" class="Field Operator"
+      >_+_</a
+      ><a name="1823"
+      >             </a
+      ><a name="1836" class="Symbol"
+      >:</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="Algebra.FunctionProperties.Core.html#715" class="Function"
+      >Op&#8322;</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1849"
+      >
+    </a
+      ><a name="1854" href="Algebra.PregroupPlus.html#1854" class="Field"
+      >&#949;&#8320;</a
+      ><a name="1856"
+      >              </a
+      ><a name="1870" class="Symbol"
+      >:</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1879"
+      >
+    </a
+      ><a name="1884" href="Algebra.PregroupPlus.html#1884" class="Field Operator"
+      >_&#7512;</a
+      ><a name="1886"
+      >              </a
+      ><a name="1900" class="Symbol"
+      >:</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1913"
+      >
+    </a
+      ><a name="1918" href="Algebra.PregroupPlus.html#1918" class="Field Operator"
+      >_&#7496;</a
+      ><a name="1920"
+      >              </a
+      ><a name="1934" class="Symbol"
+      >:</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" href="Algebra.FunctionProperties.Core.html#672" class="Function"
+      >Op&#8321;</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="Algebra.PregroupPlus.html#1586" class="Bound"
+      >Carrier</a
+      ><a name="1947"
+      >
+    </a
+      ><a name="1952" href="Algebra.PregroupPlus.html#1952" class="Field"
+      >isPregroupPlus</a
+      ><a name="1966"
+      >  </a
+      ><a name="1968" class="Symbol"
+      >:</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="Algebra.PregroupPlus.html#477" class="Record"
+      >IsPregroupPlus</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" href="Algebra.PregroupPlus.html#1614" class="Bound Operator"
+      >_&#8776;_</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" href="Algebra.PregroupPlus.html#1651" class="Bound Operator"
+      >_&#8804;_</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="Algebra.PregroupPlus.html#1688" class="Bound Operator"
+      >_&#8729;_</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" href="Algebra.PregroupPlus.html#1722" class="Bound"
+      >&#949;&#8321;</a
+      ><a name="1999"
+      > </a
+      ><a name="2000" href="Algebra.PregroupPlus.html#1752" class="Bound Operator"
+      >_&#737;</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" href="Algebra.PregroupPlus.html#1786" class="Bound Operator"
+      >_&#691;</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="Algebra.PregroupPlus.html#1820" class="Bound Operator"
+      >_+_</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" href="Algebra.PregroupPlus.html#1854" class="Bound"
+      >&#949;&#8320;</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" href="Algebra.PregroupPlus.html#1884" class="Bound Operator"
+      >_&#7512;</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="Algebra.PregroupPlus.html#1918" class="Bound Operator"
+      >_&#7496;</a
+      ><a name="2018"
+      >
+
+  </a
+      ><a name="2022" class="Keyword"
+      >open</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="Algebra.PregroupPlus.html#477" class="Module"
+      >IsPregroupPlus</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="Algebra.PregroupPlus.html#1952" class="Function"
+      >isPregroupPlus</a
+      ><a name="2056"
+      > </a
+      ><a name="2057" class="Keyword"
+      >public</a
+      ><a name="2063"
+      >
+
+  </a
+      ><a name="2067" href="Algebra.PregroupPlus.html#2067" class="Function"
+      >&#8729;-pregroup</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" class="Symbol"
+      >:</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="Algebra.Pregroup.html#1892" class="Record"
+      >Pregroup</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" class="Symbol"
+      >_</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" class="Symbol"
+      >_</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" class="Symbol"
+      >_</a
+      ><a name="2094"
+      >
+  </a
+      ><a name="2097" href="Algebra.PregroupPlus.html#2067" class="Function"
+      >&#8729;-pregroup</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" class="Symbol"
+      >=</a
+      ><a name="2109"
+      > </a
+      ><a name="2110" class="Keyword"
+      >record</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" class="Symbol"
+      >{</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" class="Field"
+      >isPregroup</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" class="Symbol"
+      >=</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" href="Algebra.PregroupPlus.html#701" class="Function"
+      >&#8729;-isPregroup</a
+      ><a name="2144"
+      > </a
+      ><a name="2145" class="Symbol"
+      >}</a
+      ><a name="2146"
+      >
+  </a
+      ><a name="2149" class="Keyword"
+      >open</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="Algebra.Pregroup.html#1892" class="Module"
+      >Pregroup</a
+      ><a name="2162"
+      > </a
+      ><a name="2163" href="Algebra.PregroupPlus.html#2067" class="Function"
+      >&#8729;-pregroup</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" class="Keyword"
+      >public</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" class="Keyword"
+      >using</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" class="Symbol"
+      >(</a
+      ><a name="2188"
+      >
+    &#737;-unique</a
+      ><a name="2201" class="Symbol"
+      >;</a
+      ><a name="2202"
+      > &#737;-identity</a
+      ><a name="2213" class="Symbol"
+      >;</a
+      ><a name="2214"
+      > &#737;-distrib</a
+      ><a name="2224" class="Symbol"
+      >;</a
+      ><a name="2225"
+      > &#737;-contra</a
+      ><a name="2234" class="Symbol"
+      >;</a
+      ><a name="2235"
+      > &#737;&#691;-cancel</a
+      ><a name="2245" class="Symbol"
+      >;</a
+      ><a name="2246"
+      >
+    &#691;-unique</a
+      ><a name="2259" class="Symbol"
+      >;</a
+      ><a name="2260"
+      > &#691;-identity</a
+      ><a name="2271" class="Symbol"
+      >;</a
+      ><a name="2272"
+      > &#691;-distrib</a
+      ><a name="2282" class="Symbol"
+      >;</a
+      ><a name="2283"
+      > &#691;-contra</a
+      ><a name="2292" class="Symbol"
+      >;</a
+      ><a name="2293"
+      > &#691;&#737;-cancel</a
+      ><a name="2303" class="Symbol"
+      >)</a
+      ><a name="2304"
+      >
+
+  </a
+      ><a name="2308" href="Algebra.PregroupPlus.html#2308" class="Function"
+      >+-pregroup</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" class="Symbol"
+      >:</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="Algebra.Pregroup.html#1892" class="Record"
+      >Pregroup</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" class="Symbol"
+      >_</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >_</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" class="Symbol"
+      >_</a
+      ><a name="2335"
+      >
+  </a
+      ><a name="2338" href="Algebra.PregroupPlus.html#2308" class="Function"
+      >+-pregroup</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" class="Symbol"
+      >=</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" class="Keyword"
+      >record</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" class="Symbol"
+      >{</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" class="Field"
+      >isPregroup</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" class="Symbol"
+      >=</a
+      ><a name="2372"
+      > </a
+      ><a name="2373" href="Algebra.PregroupPlus.html#744" class="Function"
+      >+-isPregroup</a
+      ><a name="2385"
+      > </a
+      ><a name="2386" class="Symbol"
+      >}</a
+      ><a name="2387"
+      >
+  </a
+      ><a name="2390" class="Keyword"
+      >open</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="Algebra.Pregroup.html#1892" class="Module"
+      >Pregroup</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="Algebra.PregroupPlus.html#2308" class="Function"
+      >+-pregroup</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" class="Keyword"
+      >public</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Keyword"
+      >using</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" class="Symbol"
+      >()</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" class="Keyword"
+      >renaming</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" class="Symbol"
+      >(</a
+      ><a name="2441"
+      >
+    &#737;-unique </a
+      ><a name="2455" class="Symbol"
+      >to</a
+      ><a name="2457"
+      > &#7496;-unique</a
+      ><a name="2466" class="Symbol"
+      >;</a
+      ><a name="2467"
+      > &#737;-identity </a
+      ><a name="2479" class="Symbol"
+      >to</a
+      ><a name="2481"
+      > &#7496;-identity</a
+      ><a name="2492" class="Symbol"
+      >;</a
+      ><a name="2493"
+      > &#737;-distrib </a
+      ><a name="2504" class="Symbol"
+      >to</a
+      ><a name="2506"
+      > &#7496;-distrib</a
+      ><a name="2516" class="Symbol"
+      >;</a
+      ><a name="2517"
+      >
+    &#737;-contra </a
+      ><a name="2531" class="Symbol"
+      >to</a
+      ><a name="2533"
+      > &#7496;-contra</a
+      ><a name="2542" class="Symbol"
+      >;</a
+      ><a name="2543"
+      > &#737;&#691;-cancel </a
+      ><a name="2554" class="Symbol"
+      >to</a
+      ><a name="2556"
+      > &#7496;&#7512;-cancel</a
+      ><a name="2566" class="Symbol"
+      >;</a
+      ><a name="2567"
+      >
+    &#691;-unique </a
+      ><a name="2581" class="Symbol"
+      >to</a
+      ><a name="2583"
+      > &#7512;-unique</a
+      ><a name="2592" class="Symbol"
+      >;</a
+      ><a name="2593"
+      > &#691;-identity </a
+      ><a name="2605" class="Symbol"
+      >to</a
+      ><a name="2607"
+      > &#7512;-identity</a
+      ><a name="2618" class="Symbol"
+      >;</a
+      ><a name="2619"
+      > &#691;-distrib </a
+      ><a name="2630" class="Symbol"
+      >to</a
+      ><a name="2632"
+      > &#7512;-distrib</a
+      ><a name="2642" class="Symbol"
+      >;</a
+      ><a name="2643"
+      >
+    &#691;-contra </a
+      ><a name="2657" class="Symbol"
+      >to</a
+      ><a name="2659"
+      > &#7512;-contra</a
+      ><a name="2668" class="Symbol"
+      >;</a
+      ><a name="2669"
+      > &#691;&#737;-cancel </a
+      ><a name="2680" class="Symbol"
+      >to</a
+      ><a name="2682"
+      > &#7512;&#7496;-calcel</a
+      ><a name="2692" class="Symbol"
+      >)</a
+      ><a name="2693"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
