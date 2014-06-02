@@ -69,6 +69,3 @@ record PregroupPlus c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
     ˡ-contra to ᵈ-contra; ˡʳ-cancel to ᵈᵘ-cancel;
     ʳ-unique to ᵘ-unique; ʳ-identity to ᵘ-identity; ʳ-distrib to ᵘ-distrib;
     ʳ-contra to ᵘ-contra; ʳˡ-cancel to ᵘᵈ-calcel)
-
-  xˡᵘʳᵈ≈x : ∀ x → x ˡ ᵘ ʳ ᵈ ≈ x
-  xˡᵘʳᵈ≈x x = {!!}

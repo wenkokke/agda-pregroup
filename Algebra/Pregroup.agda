@@ -13,19 +13,27 @@ module Algebra.Pregroup where
 
 -- Definition of the properties of left and right contraction and
 -- expansion for usage in the below definition of pregroups.
-module AdjointProperties {a ℓ} {A : Set a} (_≤_ : Rel A ℓ) where
+module AdjointProperties {a ℓ} {A : Set a} (_≤_ : Rel A ℓ) (_∙_ : Op₂ A) (ε : A) where
 
-  LeftContract : A → Op₁ A → Op₂ A → Set _
-  LeftContract ε _ˡ _∙_ = ∀ x → (x ˡ ∙ x) ≤ ε
+  LeftContract : Op₁ A → Set _
+  LeftContract _ˡ = ∀ x → (x ˡ ∙ x) ≤ ε
 
-  LeftExpand : A → Op₁ A → Op₂ A → Set _
-  LeftExpand ε _ˡ _∙_ = ∀ x → ε ≤ (x ∙ x ˡ)
+  LeftExpand : Op₁ A → Set _
+  LeftExpand _ˡ = ∀ x → ε ≤ (x ∙ x ˡ)
 
-  RightContract : A → Op₁ A → Op₂ A → Set _
-  RightContract ε _ʳ _∙_ = ∀ x → (x ∙ x ʳ) ≤ ε
+  RightContract : Op₁ A → Set _
+  RightContract _ʳ = ∀ x → (x ∙ x ʳ) ≤ ε
 
-  RightExpand : A → Op₁ A → Op₂ A → Set _
-  RightExpand ε _ʳ _∙_ = ∀ x → ε ≤ (x ʳ ∙ x)
+  RightExpand : Op₁ A → Set _
+  RightExpand _ʳ = ∀ x → ε ≤ (x ʳ ∙ x)
+
+  -- define shorthand notation for a term being the left/right adjoint
+  -- of another term, which can be proven to be unique.
+  _LeftAdjointOf_ : ∀ y x → Set _
+  _LeftAdjointOf_ y x = (y ∙ x) ≤ ε × ε ≤ (x ∙ y)
+
+  _RightAdjointOf_ : ∀ y x → Set _
+  _RightAdjointOf_ y x = (x ∙ y) ≤ ε × ε ≤ (y ∙ x)
 
 
 -- Definition of a pregroup, which adds a left and a right adjoint to
@@ -33,17 +41,18 @@ module AdjointProperties {a ℓ} {A : Set a} (_≤_ : Rel A ℓ) where
 record IsPregroup {a ℓ₁ ℓ₂} {A : Set a} (≈ : Rel A ℓ₁) (≤ : Rel A ℓ₂)
                   (∙ : Op₂ A) (ε : A) (ˡ : Op₁ A) (ʳ : Op₁ A) : Set (a ⊔ ℓ₁ ⊔ ℓ₂) where
 
-  open AdjointProperties ≤
+  open AdjointProperties ≤ ∙ ε
   field
     isOrderedMonoid : IsOrderedMonoid ≈ ≤ ∙ ε
     ˡ-cong          : ˡ Preserves ≈ ⟶ ≈
     ʳ-cong          : ʳ Preserves ≈ ⟶ ≈
-    ˡ-contract      : LeftContract ε ˡ ∙
-    ˡ-expand        : LeftExpand ε ˡ ∙
-    ʳ-contract      : RightContract ε ʳ ∙
-    ʳ-expand        : RightExpand ε ʳ ∙
+    ˡ-contract      : LeftContract ˡ
+    ˡ-expand        : LeftExpand ˡ
+    ʳ-contract      : RightContract ʳ
+    ʳ-expand        : RightExpand ʳ
 
   open IsOrderedMonoid isOrderedMonoid public
+  open AdjointProperties ≤ ∙ ε public
 
 record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
   infixl 7 _∙_
@@ -71,14 +80,6 @@ record Pregroup c ℓ₁ ℓ₂ : Set (suc (c ⊔ ℓ₁ ⊔ ℓ₂)) where
     orderedMonoid : OrderedMonoid _ _ _
     orderedMonoid = record { isOrderedMonoid = isOrderedMonoid }
     open OrderedMonoid orderedMonoid public using (substitutivity)
-
-  -- define shorthand notation for a term being the left/right adjoint
-  -- of another term, which can be proven to be unique.
-  _LeftAdjointOf_ : ∀ y x → Set _
-  _LeftAdjointOf_ y x = (y ∙ x) ≤ ε × ε ≤ (x ∙ y)
-  _RightAdjointOf_ : ∀ y x → Set _
-  _RightAdjointOf_ y x = (x ∙ y) ≤ ε × ε ≤ (y ∙ x)
-
 
   ˡ-unique : ∀ {x y} → y LeftAdjointOf x → y ≈ x ˡ
   ˡ-unique {x} {y} (y-contract , y-expand) = antisym y≤xˡ xˡ≤y
