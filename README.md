@@ -9,8 +9,9 @@
 
 #### Technical Details
 
-  - the code was written for use with [version 0.7 of the Agda standard
-    library](http://www.cse.chalmers.se/~nad/software/lib-0.7.tar.gz);
+  - the code was written for use with [version 2.4.0 of the Agda standard
+    library](https://github.com/agda/agda-stdlib/releases/tag/v2.4.0)
+    (though older versions should work);
 
   - the code is released under an [MIT license](code/LICENSE);
 
